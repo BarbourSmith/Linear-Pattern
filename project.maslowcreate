@@ -42,7 +42,16 @@
             "x": 0.5051244509516838,
             "y": 0.37931034482758624,
             "uniqueID": 709218,
-            "ioValues": [],
+            "ioValues": [
+                {
+                    "name": "Number",
+                    "ioValue": 10
+                },
+                {
+                    "name": "Spacing",
+                    "ioValue": 10
+                }
+            ],
             "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(Shape, Number, Spacing){\n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    i++\n    shapeArray.push(translate([Spacing,0,0], Shape))\n  }\n    \n  return translate([Spacing,0,0], Shape)//union(shapeArray)        //return must be geometry;\n}\n\nreturn main(Shape, Number, Spacing)"
         },
         {
@@ -93,12 +102,25 @@
     ],
     "allConnectors": [
         {
+            "ap1Name": "number or geometry",
+            "ap2Name": "Spacing",
+            "ap2Primary": false,
+            "ap1ID": 553742,
+            "ap2ID": 709218
+        },
+        {
             "ap1Name": "geometry",
             "ap2Name": "number or geometry",
             "ap2Primary": false,
             "ap1ID": 709218
         },
-        null,
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "Number",
+            "ap2Primary": false,
+            "ap1ID": 683284,
+            "ap2ID": 709218
+        },
         {
             "ap1Name": "geometry",
             "ap2Name": "Shape",
