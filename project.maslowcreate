@@ -39,11 +39,11 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.39311859443631036,
-            "y": 0.39463601532567044,
+            "x": 0.5051244509516838,
+            "y": 0.37931034482758624,
             "uniqueID": 709218,
             "ioValues": [],
-            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(Input1, Input2){\n  return Sphere(40)        //return must be geometry;\n}\n\nreturn main(Input1, Input2)"
+            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(Shape, Number, Spacing){\n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    i++\n    shapeArray.push(translate([Spacing,0,0], Shape)\n  }\n    \n  return union(shapeArray)        //return must be geometry;\n}\n\nreturn main(Shape, Number, Spacing)"
         },
         {
             "atomType": "Input",
@@ -92,6 +92,19 @@
         }
     ],
     "allConnectors": [
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": 709218
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "Shape",
+            "ap2Primary": false,
+            "ap1ID": 689711,
+            "ap2ID": 709218
+        },
         {
             "ap1Name": "geometry",
             "ap2Name": "geometry",
