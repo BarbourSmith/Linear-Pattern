@@ -4,9 +4,22 @@
     "x": 0,
     "y": 0,
     "uniqueID": 979629,
-    "ioValues": [],
+    "ioValues": [
+        {
+            "name": "Shape",
+            "ioValue": 10
+        }
+    ],
     "topLevel": true,
     "allAtoms": [
+        {
+            "atomType": "Input",
+            "name": "Shape",
+            "x": 0.013333333333333334,
+            "y": 0.475095785440613,
+            "uniqueID": 335749,
+            "ioValues": []
+        },
         {
             "atomType": "Output",
             "name": "Output",
