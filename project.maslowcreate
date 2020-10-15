@@ -15,7 +15,7 @@
         },
         {
             "name": "Spacing",
-            "ioValue": 10
+            "ioValue": 20
         }
     ],
     "topLevel": true,
@@ -49,10 +49,10 @@
                 },
                 {
                     "name": "Spacing",
-                    "ioValue": 10
+                    "ioValue": 20
                 }
             ],
-            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(Shape, Number, Spacing){\n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    i++\n    shapeArray.push(translate([Spacing,0,0], Shape))\n  }\n    \n  return translate([Spacing,0,0], Shape)//union(shapeArray)        //return must be geometry;\n}\n\nreturn main(Shape, Number, Spacing)"
+            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(Shape, Number, Spacing){\n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    shapeArray.push(translate([Spacing*i,0,0], Shape))\n    i++\n  }\n    \n  return union(shapeArray)        //return must be geometry;\n}\n\nreturn main(Shape, Number, Spacing)"
         },
         {
             "atomType": "Input",
@@ -109,6 +109,13 @@
             "ap2ID": 709218
         },
         {
+            "ap1Name": "number or geometry",
+            "ap2Name": "Shape",
+            "ap2Primary": false,
+            "ap1ID": 335749,
+            "ap2ID": 709218
+        },
+        {
             "ap1Name": "geometry",
             "ap2Name": "number or geometry",
             "ap2Primary": false,
@@ -119,13 +126,6 @@
             "ap2Name": "Number",
             "ap2Primary": false,
             "ap1ID": 683284,
-            "ap2ID": 709218
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "Shape",
-            "ap2Primary": false,
-            "ap1ID": 689711,
             "ap2ID": 709218
         },
         {
