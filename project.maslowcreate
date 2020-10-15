@@ -43,7 +43,7 @@
             "y": 0.37931034482758624,
             "uniqueID": 709218,
             "ioValues": [],
-            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(Shape, Number, Spacing){\n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    i++\n    shapeArray.push(translate([Spacing,0,0], Shape))\n  }\n    \n  return union(shapeArray)        //return must be geometry;\n}\n\nreturn main(Shape, Number, Spacing)"
+            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(Shape, Number, Spacing){\n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    i++\n    shapeArray.push(translate([Spacing,0,0], Shape))\n  }\n    \n  return translate([Spacing,0,0], Shape)//union(shapeArray)        //return must be geometry;\n}\n\nreturn main(Shape, Number, Spacing)"
         },
         {
             "atomType": "Input",
@@ -98,6 +98,7 @@
             "ap2Primary": false,
             "ap1ID": 709218
         },
+        null,
         {
             "ap1Name": "geometry",
             "ap2Name": "Shape",
