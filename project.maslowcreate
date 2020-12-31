@@ -39,10 +39,14 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5051244509516838,
-            "y": 0.37931034482758624,
+            "x": 0.5056994818652849,
+            "y": 0.38549618320610685,
             "uniqueID": 709218,
             "ioValues": [
+                {
+                    "name": "shapeToMove",
+                    "ioValue": 10
+                },
                 {
                     "name": "Number",
                     "ioValue": 10
@@ -50,13 +54,9 @@
                 {
                     "name": "Spacing",
                     "ioValue": 20
-                },
-                {
-                    "name": "shapeToMove",
-                    "ioValue": "atoms/979629/689711Extrude"
                 }
             ],
-            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(shapeToMove, Number, Spacing){\n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    shapeArray.push(Shape.move(Spacing*i,0,0))\n    i++\n  }\n    \n  return Union(...shapeArray)        //return must be geometry;\n}\n\nreturn main(shapeToMove, Number, Spacing)"
+            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(shapeToMove, Number, Spacing){\n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    shapeArray.push(shapeToMove.move(Spacing*i,0,0))\n    i++\n  }\n    \n  return Union(...shapeArray)        //return must be geometry;\n}\n\nreturn main(shapeToMove, Number, Spacing)"
         },
         {
             "atomType": "Input",
@@ -123,6 +123,13 @@
             "ap2ID": 709218
         },
         {
+            "ap1Name": "number or geometry",
+            "ap2Name": "shapeToMove",
+            "ap2Primary": false,
+            "ap1ID": 335749,
+            "ap2ID": 709218
+        },
+        {
             "ap1Name": "geometry",
             "ap2Name": "number or geometry",
             "ap2Primary": false,
@@ -134,13 +141,6 @@
             "ap2Name": "Number",
             "ap2Primary": false,
             "ap1ID": 683284,
-            "ap2ID": 709218
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "shapeToMove",
-            "ap2Primary": false,
-            "ap1ID": 689711,
             "ap2ID": 709218
         },
         {
