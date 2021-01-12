@@ -45,7 +45,7 @@
             "ioValues": [
                 {
                     "name": "shapeToMove",
-                    "ioValue": "atoms/979629/689711Extrude"
+                    "ioValue": 10
                 },
                 {
                     "name": "Number",
@@ -123,6 +123,13 @@
             "ap2ID": 709218
         },
         {
+            "ap1Name": "number or geometry",
+            "ap2Name": "shapeToMove",
+            "ap2Primary": false,
+            "ap1ID": 335749,
+            "ap2ID": 709218
+        },
+        {
             "ap1Name": "geometry",
             "ap2Name": "number or geometry",
             "ap2Primary": false,
@@ -134,13 +141,6 @@
             "ap2Name": "Number",
             "ap2Primary": false,
             "ap1ID": 683284,
-            "ap2ID": 709218
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "shapeToMove",
-            "ap2Primary": false,
-            "ap1ID": 689711,
             "ap2ID": 709218
         },
         {
