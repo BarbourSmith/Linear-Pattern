@@ -39,8 +39,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5056994818652849,
-            "y": 0.38549618320610685,
+            "x": 0.44129554655870445,
+            "y": 0.3893129770992366,
             "uniqueID": 709218,
             "ioValues": [
                 {
@@ -56,7 +56,7 @@
                     "ioValue": 20
                 }
             ],
-            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(shapeToMove, Number, Spacing){\n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    shapeArray.push(shapeToMove.move(Spacing*i,0,0))\n    i++\n  }\n    \n  return Group(...shapeArray)        //return must be geometry;\n}\n\nreturn main(shapeToMove, Number, Spacing)"
+            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(shapeToMove, Number, Spacing){\n  if(shapeToMove == 10){\n      shapeToMove = Arc(10).pull(5);\n  }\n  \n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    shapeArray.push(shapeToMove.move(Spacing*i,0,0))\n    i++\n  }\n    \n  return Group(...shapeArray)        //return must be geometry;\n}\n\nreturn main(shapeToMove, Number, Spacing)"
         },
         {
             "atomType": "Input",
@@ -65,40 +65,6 @@
             "y": 0.681992337164751,
             "uniqueID": 683284,
             "ioValues": []
-        },
-        {
-            "atomType": "Extrude",
-            "name": "Extrude",
-            "x": 0.32538860103626943,
-            "y": 0.6526717557251909,
-            "uniqueID": 689711,
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": "atoms/979629/442835Rectangle"
-                },
-                {
-                    "name": "height",
-                    "ioValue": 10
-                }
-            ]
-        },
-        {
-            "atomType": "Rectangle",
-            "name": "Rectangle",
-            "x": 0.21669106881405564,
-            "y": 0.735632183908046,
-            "uniqueID": 442835,
-            "ioValues": [
-                {
-                    "name": "x length",
-                    "ioValue": 10
-                },
-                {
-                    "name": "y length",
-                    "ioValue": 10
-                }
-            ]
         },
         {
             "atomType": "Output",
@@ -142,13 +108,6 @@
             "ap2Primary": false,
             "ap1ID": 683284,
             "ap2ID": 709218
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry",
-            "ap2Primary": true,
-            "ap1ID": 442835,
-            "ap2ID": 689711
         }
     ],
     "fileTypeVersion": 1,
