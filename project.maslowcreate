@@ -39,9 +39,9 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.44129554655870445,
-            "y": 0.3893129770992366,
-            "uniqueID": 709218,
+            "x": 0.470995670995671,
+            "y": 0.4134615384615385,
+            "uniqueID": 351926,
             "ioValues": [
                 {
                     "name": "shapeToMove",
@@ -56,7 +56,7 @@
                     "ioValue": 20
                 }
             ],
-            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(shapeToMove, Number, Spacing){\n  if(shapeToMove == 10){\n      shapeToMove = Arc(10).pull(5);\n  }\n  \n  var i = 0\n  var shapeArray = []\n  while(i < Number){\n    shapeArray.push(shapeToMove.move(Spacing*i,0,0))\n    i++\n  }\n    \n  return Group(...shapeArray)        //return must be geometry;\n}\n\nreturn main(shapeToMove, Number, Spacing)"
+            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n//Inputs:[shapeToMove, Number, Spacing];\n\nconsole.log(\"Input Shape: \");\nconsole.log(shapeToMove);\n\nif(shapeToMove == 10){\n   shapeToMove = Arc(10).ez(5);\n}\n  \nvar i = 0\nvar shapeArray = []\nwhile(i < Number){\n  shapeArray.push(shapeToMove.move(Spacing*i,0,0))\n  i++\n}\n\nreturn Group(...shapeArray)        //return must be geometry;\n"
         },
         {
             "atomType": "Input",
@@ -75,7 +75,7 @@
             "ioValues": [
                 {
                     "name": "number or geometry",
-                    "ioValue": "atoms/979629/709218Code"
+                    "ioValue": "atoms/979629/351926Code"
                 }
             ]
         }
@@ -86,20 +86,20 @@
             "ap2Name": "Spacing",
             "ap2Primary": false,
             "ap1ID": 553742,
-            "ap2ID": 709218
+            "ap2ID": 351926
         },
         {
             "ap1Name": "number or geometry",
             "ap2Name": "shapeToMove",
             "ap2Primary": false,
             "ap1ID": 335749,
-            "ap2ID": 709218
+            "ap2ID": 351926
         },
         {
             "ap1Name": "geometry",
             "ap2Name": "number or geometry",
             "ap2Primary": false,
-            "ap1ID": 709218,
+            "ap1ID": 351926,
             "ap2ID": 420695
         },
         {
@@ -107,10 +107,12 @@
             "ap2Name": "Number",
             "ap2Primary": false,
             "ap1ID": 683284,
-            "ap2ID": 709218
+            "ap2ID": 351926
         }
     ],
     "fileTypeVersion": 1,
+    "simplify": false,
+    "unitsIndex": 0,
     "filetypeVersion": 1,
     "circleSegmentSize": 2
 }
