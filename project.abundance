@@ -33,44 +33,6 @@
       ]
     },
     {
-      "atomType": "Code",
-      "x": 0.5112433862433863,
-      "y": 0.4345403899721449,
-      "uniqueID": 1739925625776,
-      "ioValues": [
-        {
-          "name": "Shape",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "Number",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "Dist",
-          "ioValue": "__GEOMETRY_INPUT__"
-        }
-      ],
-      "interpreterVersion": 0,
-      "code": "//Inputs:[Shape, Number, Dist];\n\n\nlet shapesArray = [];\nfor (let i = 0; i < Number; i++) {\n    let rotatedShape = await Move(Shape, Dist * i, 0, 0);\n    shapesArray.push(rotatedShape);\n}\n\nlet assembledShape = await Assembly(shapesArray)\n\nreturn assembledShape;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
-    },
-    {
-      "atomType": "Rectangle",
-      "x": 0.27976190476190477,
-      "y": 0.2116991643454039,
-      "uniqueID": 1739925687796,
-      "ioValues": [
-        {
-          "name": "x length",
-          "ioValue": 10
-        },
-        {
-          "name": "y length",
-          "ioValue": 10
-        }
-      ]
-    },
-    {
       "atomType": "Input",
       "x": 0.025384615384615384,
       "y": 0.15384615384615385,
@@ -93,28 +55,51 @@
       "uniqueID": 1739926589843,
       "name": "Geometry",
       "type": "number"
+    },
+    {
+      "atomType": "Code",
+      "x": 0.48082010582010587,
+      "y": 0.49860724233983283,
+      "uniqueID": "id-17",
+      "ioValues": [
+        {
+          "name": "shape",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "count",
+          "ioValue": 4
+        },
+        {
+          "name": "dist",
+          "ioValue": 15
+        }
+      ],
+      "interpreterVersion": 1,
+      "code": "function run(\n  shape: Assembly | undefined = undefined,\n  count: number = 3,\n  dist: number = 10,\n): Assembly {\n  if (!shape) {\n    throw new Error(\"Must connect a shape to this atom\");\n  }\n\n  const copies: Assembly[] = [];\n\n  for (let i = 0; i < count; i++) {\n    const offset = dist * i;\n\n    // Clone the input shape and translate every leaf along the X axis.\n    const moved = new Assembly(shape).onLeafs((leaf) => {\n      leaf.geometry = leaf.geometry.translate(offset, 0, 0);\n      return leaf;\n    });\n\n    if (moved) copies.push(moved);\n  }\n\n  // Combine all the translated copies into a single assembly.\n  return new Assembly({ geometry: copies });\n}",
+      "compiledCode": "\"use strict\";\nfunction run(shape = undefined, count = 3, dist = 10) {\n    if (!shape) {\n        throw new Error(\"Must connect a shape to this atom\");\n    }\n    const copies = [];\n    for (let i = 0; i < count; i++) {\n        const offset = dist * i;\n        // Clone the input shape and translate every leaf along the X axis.\n        const moved = new Assembly(shape).onLeafs((leaf) => {\n            leaf.geometry = leaf.geometry.translate(offset, 0, 0);\n            return leaf;\n        });\n        if (moved)\n            copies.push(moved);\n    }\n    // Combine all the translated copies into a single assembly.\n    return new Assembly({ geometry: copies });\n}\n"
     }
   ],
   "allConnectors": [
     {
-      "ap2Name": "number or geometry",
-      "ap1ID": 1739925625776,
-      "ap2ID": 1739925623486
-    },
-    {
-      "ap2Name": "Number",
+      "ap2Name": "count",
       "ap1ID": 1739926573683,
-      "ap2ID": 1739925625776
+      "ap2ID": "id-17"
     },
     {
-      "ap2Name": "Dist",
+      "ap2Name": "dist",
       "ap1ID": 1739926583508,
-      "ap2ID": 1739925625776
+      "ap2ID": "id-17"
     },
     {
-      "ap2Name": "Shape",
+      "ap2Name": "shape",
       "ap1ID": 1739926589843,
-      "ap2ID": 1739925625776
+      "ap2ID": "id-17"
+    },
+    {
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-17",
+      "ap2ID": 1739925623486
     }
   ],
   "unitsKey": "MM",
